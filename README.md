@@ -7,7 +7,7 @@ I realized this was related to Graph Theory, so I wrote a Depth-First Traversal 
 
 ![Starburst Board](starburst_board.jpg)
 
-Here are all the possible solutions:
+Here are all the possible solutions as calculated by the program:
 
 * 1, 5, 2, 7, 4, 6, 3, 8
 * 1, 5, 2, 7, 4, 8, 3, 6

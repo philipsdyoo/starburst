@@ -9,6 +9,7 @@ public class StarburstNode
 {
     public int id;
     public boolean visited;
+    //array of connected nodes
     public StarburstNode[] connections;
     
     public StarburstNode(int id)
@@ -17,34 +18,50 @@ public class StarburstNode
         visited = false;
     }
     
+    /**
+     * Set the connected nodes to this node
+     * @param nodes = array of connected nodes
+     */
     public void setConnections(StarburstNode[] nodes)
     {
         connections = nodes;
     }
     
+    /**
+     * Returns the id of the node
+     */
     public String toString()
     {
         return Integer.toString(id);
     }
     
-    public void checkPath(Stack<StarburstNode> stack, Set<String> paths)
+    /**
+     * A recursive function to go through every possible path using Depth-First Traversal.
+     * @param path = keeps track of the current path
+     * @param solutions = holds all the unique solutions
+     */
+    public void checkPath(Stack<StarburstNode> path, Set<String> solutions)
     {
-        //End of path
+        //End of path since this node was already visited
         if (visited)
         {
-            if (stack.size() == 8)
-                paths.add(stack.toString());
+            //If the current path is a solution (8 nodes), add it to the set
+            if (path.size() == 8)
+                solutions.add(path.toString());
             return;
         }
         
+        //Set this node as visited and add to the current path
         visited = true;
-        stack.push(this);
+        path.push(this);
+        
+        //Recurse through each connected node
         for (StarburstNode node: connections)
         {
-            //Recurse through each connected node
-            node.checkPath(stack, paths);
+            node.checkPath(path, solutions);
         }
-        stack.pop();
+        //Done with visiting this node, so remove from the current path
+        path.pop();
         visited = false;
     }
 }

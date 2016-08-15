@@ -12,7 +12,7 @@ public class StarburstTester
 
     public static void main(String[] args)
     {
-        // Creating nodes
+        //Creating nodes
         StarburstNode one = new StarburstNode(1);
         StarburstNode two = new StarburstNode(2);
         StarburstNode three = new StarburstNode(3);
@@ -32,18 +32,21 @@ public class StarburstTester
         seven.setConnections(new StarburstNode[]{two, four});
         eight.setConnections(new StarburstNode[]{three, four});
         
-        Stack<StarburstNode> stack = new Stack<StarburstNode>();
-        Set<String> paths = new HashSet<String>();
+        //Instantiating the stack (keeps track of current path) and set (holds unique solutions)
+        Stack<StarburstNode> path = new Stack<StarburstNode>();
+        Set<String> solutions = new HashSet<String>();
         
-        one.checkPath(stack, paths);
-        two.checkPath(stack, paths);
-        three.checkPath(stack, paths);
-        four.checkPath(stack, paths);
-        five.checkPath(stack, paths);
-        six.checkPath(stack, paths);
-        seven.checkPath(stack, paths);
-        eight.checkPath(stack, paths);
+        //Check for any possible solution paths starting at each of the nodes
+        one.checkPath(path, solutions);
+        two.checkPath(path, solutions);
+        three.checkPath(path, solutions);
+        four.checkPath(path, solutions);
+        five.checkPath(path, solutions);
+        six.checkPath(path, solutions);
+        seven.checkPath(path, solutions);
+        eight.checkPath(path, solutions);
         
-        System.out.println(paths);
+        //Print out the solutions set
+        System.out.println(solutions);
     }
 }
