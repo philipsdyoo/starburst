@@ -1,5 +1,9 @@
 # starburst
-Finding all the paths for the Starburst toy board
+Finding all the paths for the Starburst game board
+
+Instructions: Place a peg on a node, follow a path to the next node, place a peg there, repeat until you run out of nodes to travel to. A solution requires you to place a peg on all eight nodes.
+
+I realized this was related to Graph Theory, so I wrote a Depth-First Traversal recursive algorithm to find all possible paths from a given starting node. I use a stack to keep track of the path and a set to hold all unique solutions.
 
 ![Starburst Board](starburst_board.jpg)
 
